@@ -194,7 +194,7 @@ const Dashboard = () => {
 
             {/* Main Content Area */}
             <div
-                className={`main-content flex-1 p-6 bg-gray-100 transition-transform ${isSidebarOpen ? 'ml-64' : ''
+                className={`main-content flex-1 p-6  transition-transform ${isSidebarOpen ? 'ml-64' : ''
                     }`}
             >
                 <h1 className="text-3xl font-semibold mb-6 ml-12">Dashboard</h1>

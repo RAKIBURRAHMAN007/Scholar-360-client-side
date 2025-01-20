@@ -11,6 +11,7 @@ import Dashboard from "../Layout/DashBoard";
 import MyProfile from "../components/DashBoard/MyProfile";
 import MyApplication from "../components/DashBoard/MyApplication";
 import MyReviews from "../components/DashBoard/MyReviews";
+import ManageUsers from "../components/DashBoard/ManageUsers";
 
 const router = createBrowserRouter([
     {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
             {
                 path: 'myReviews',
                 element: <MyReviews></MyReviews>
+            },
+            {
+                path: 'manageUsers',
+                element: <ManageUsers></ManageUsers>
             }
         ]
     }
