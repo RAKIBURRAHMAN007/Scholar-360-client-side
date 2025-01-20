@@ -7,7 +7,7 @@ import { ToastContainer } from 'react-toastify';
 const Root = () => {
     return (
         <div>
-            <div className=' min-h-screen flex flex-col'>
+            <div className=' lg:min-h-screen min-h-svh flex flex-col'>
                 <NavBar />
                 <div className="flex-grow">
                     <Outlet />

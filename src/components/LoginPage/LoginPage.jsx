@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import GoogleButton from 'react-google-button'
-import loginLotiie from '../../assets/lottie/Animation - 1737366871920.json'
+import loginLotiie from '../../assets/lottie/Animation - 1737369005126.json'
 import Lottie from 'lottie-react';
 import bg from '../../assets/img/9082953.jpg'
 import { toast } from 'react-toastify';
