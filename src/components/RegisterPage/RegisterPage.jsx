@@ -54,7 +54,8 @@ const RegisterPage = () => {
                 }
                 const userInfo = {
                     displayName: name,
-                    email: email
+                    email: email,
+                    role: 'user'
 
                 }
 

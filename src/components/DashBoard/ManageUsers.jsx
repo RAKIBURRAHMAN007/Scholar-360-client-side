@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import useAxiosSecure from '../../hooks/UseAxiosSecure';
-import { FaTrashAlt, FaUsers } from 'react-icons/fa';
+import { FaTrashAlt, FaUserAlt, FaUserCircle, FaUsers } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
 const ManageUsers = () => {
@@ -25,7 +25,7 @@ const ManageUsers = () => {
                     Swal.fire({
                         position: "top-center",
                         icon: "success",
-                        title: `${user.name} is an Admin Now!`,
+                        title: `${user.displayName} is an Admin Now!`,
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -41,7 +41,23 @@ const ManageUsers = () => {
                     Swal.fire({
                         position: "top-center",
                         icon: "success",
-                        title: `${user.name} is an Admin Now!`,
+                        title: `${user.displayName} is an Admin Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+    }
+    const handleMakeUser= user => {
+        axiosSecure.patch(`/users/user/${user._id}`)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: "top-center",
+                        icon: "success",
+                        title: `${user.displayName} is an Admin Now!`,
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -86,7 +102,9 @@ const ManageUsers = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Role</th>
+                            <th>Make Admin</th>
+                            <th>Make Moderator</th>
+                            <th>Make Regular User</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -102,6 +120,22 @@ const ManageUsers = () => {
                                         className="btn btn-lg bg-[#2c3792]">
                                         <FaUsers className="text-white 
                                         text-xl"></FaUsers>
+                                    </button>}
+                                </td>
+                                <td>
+                                    {user.role === 'moderator' ? 'Moderator' : <button
+                                        onClick={() => handleMakeModerator(user)}
+                                        className="btn btn-lg bg-[#53577d]">
+                                        <FaUserCircle className="text-white 
+                                        text-xl"></FaUserCircle>
+                                    </button>}
+                                </td>
+                                <td>
+                                    {user.role === 'user' ? 'User' : <button
+                                        onClick={() => handleMakeUser(user)}
+                                        className="btn btn-lg bg-[#191a27]">
+                                        <FaUserAlt className="text-white 
+                                        text-xl"></FaUserAlt>
                                     </button>}
                                 </td>
                                 <td>

@@ -21,7 +21,8 @@ const LoginPage = () => {
             .then(result => {
                 const userInfo = {
                     email: result.user?.email,
-                    displayName: result.user?.displayName
+                    displayName: result.user?.displayName,
+                    role: 'user'
                 }
                 // console.log('rsult', result)
 
@@ -31,7 +32,7 @@ const LoginPage = () => {
 
                         toast.success('Login Successful');
 
-                navigate(location?.state ? location.state : '/')
+                        navigate(location?.state ? location.state : '/')
 
                     })
 
@@ -67,13 +68,13 @@ const LoginPage = () => {
     return (
         <div className='p-10 mt-28 lg:mb-24 mb-16 h-full' style={{
             backgroundImage: `url(${bg})`,
-            
+
 
             width: "full",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
-            
+
         }}>
 
             <div style={{
