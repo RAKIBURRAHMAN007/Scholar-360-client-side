@@ -28,7 +28,7 @@ const Banner = () => {
                 <SwiperSlide>
                     <div className="w-full">
                         <video
-                            className="w-full object-cover h-[200px] md:h-[60vh] lg:h-[79vh]"
+                            className="w-full object-cover h-[270px] md:h-[60vh] lg:h-[79vh]"
                             src={video}
                             autoPlay
                             loop
@@ -39,7 +39,7 @@ const Banner = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="relative w-full">
-                        <img className="w-full object-cover h-[200px] md:h-[60vh] lg:h-[79vh]" src={img1} alt="Banner 1" />
+                        <img className="w-full object-cover h-[270px] md:h-[60vh] lg:h-[79vh]" src={img1} alt="Banner 1" />
                         <div className="absolute inset-0 flex flex-col justify-center items-center bg-black/50 text-white px-4 text-center">
                             <h2 className="text-lg md:text-4xl font-semibold mb-2 md:mb-4">Unlock Your Future</h2>
                             <p className="text-xs md:text-lg leading-tight md:leading-relaxed mb-4 md:mb-6">
@@ -55,7 +55,7 @@ const Banner = () => {
                 {/* Slide 2 - Image */}
                 <SwiperSlide>
                     <div className="relative w-full">
-                        <img className="w-full object-cover h-[200px] md:h-[60vh] lg:h-[79vh]" src={img2} alt="Banner 2" />
+                        <img className="w-full object-cover h-[270px] md:h-[60vh] lg:h-[79vh]" src={img2} alt="Banner 2" />
                         <div className="absolute inset-0 flex flex-col justify-center items-center bg-black/50 text-white px-4 text-center">
                             <h2 className="text-lg md:text-4xl font-semibold mb-2 md:mb-4">Study Abroad Made Affordable</h2>
                             <p className="text-xs md:text-lg leading-tight md:leading-relaxed mb-4 md:mb-6">

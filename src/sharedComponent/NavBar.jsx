@@ -60,7 +60,7 @@ const NavBar = () => {
                     Dashboard
                 </NavLink>
             </li>
-            <li>
+            {/* <li>
                 <NavLink
                     to="/aboutUs"
                     style={({ isActive, isPending, isTransitioning }) => {
@@ -76,13 +76,13 @@ const NavBar = () => {
                 >
                     About-Us
                 </NavLink>
-            </li>
+            </li> */}
         </>
     );
 
 
     return (
-        <div className="navbar fixed z-20 bg-white bg-opacity-50   " >
+        <div className="navbar fixed z-20 bg-[#d1cec0] bg-opacity-70   " >
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost  lg:hidden">

@@ -3,7 +3,7 @@ import { Link, NavLink, Outlet } from 'react-router-dom';
 import { FaBars, FaClipboardCheck, FaClipboardList, FaHome, FaPlus, FaStar, FaTasks, FaUser, FaUsers } from 'react-icons/fa';
 
 const Dashboard = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
     const toggleSidebar = () => {
         setIsSidebarOpen((prev) => !prev);
@@ -21,7 +21,7 @@ const Dashboard = () => {
 
             {/* Sidebar */}
             <div
-                className={`fixed top-0 left-0 h-full bg-[#2c3792] text-white w-64 transition-transform overflow-y-auto transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`fixed top-0 z-20 left-0 h-full bg-[#2c3792] text-white w-64 transition-transform overflow-y-auto transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
             >
                 <h2 className="text-2xl font-semibold mt-12 p-4">Dashboard Overview</h2>
@@ -194,7 +194,7 @@ const Dashboard = () => {
 
             {/* Main Content Area */}
             <div
-                className={`main-content flex-1 p-6  transition-transform ${isSidebarOpen ? 'ml-64' : ''
+                className={`main-content flex-1 p-6  transition-transform ${isSidebarOpen ? '' : ''
                     }`}
             >
                 <h1 className="text-3xl font-semibold mb-6 ml-12">Dashboard</h1>
