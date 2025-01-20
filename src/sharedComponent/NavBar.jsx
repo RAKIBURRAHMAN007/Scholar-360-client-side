@@ -45,7 +45,7 @@ const NavBar = () => {
             </li>
             <li>
                 <NavLink
-                    to="/mybookings"
+                    to="/dashboard"
                     style={({ isActive, isPending, isTransitioning }) => {
                         return {
                           fontWeight: isActive ? "bold" : "",
@@ -57,7 +57,7 @@ const NavBar = () => {
                       }}
                     className=" hover:text-[#2c3792] p-2 rounded font-medium hover:font-bold"
                 >
-                    My Bookings
+                    Dashboard
                 </NavLink>
             </li>
             <li>
