@@ -1,53 +1,91 @@
 import { useContext } from "react";
-import { AuthContext } from "../../provider/AuthProvider";
+import { auth, AuthContext } from "../../provider/AuthProvider";
 import { toast } from "react-toastify";
 import bg from '../../assets/img/9082953.jpg'
 import registerLotiie from '../../assets/lottie/Animation - 1737369302762.json'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
+import UseAxiosPublic from "../../hooks/UseAxiosPublic";
+import { updateProfile } from "firebase/auth";
+const imgHostingKey = import.meta.env.VITE_imgHostingKey;
+const imgHostingApi = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`
 const RegisterPage = () => {
-
+    const axiosPublic = UseAxiosPublic();
     const location = useLocation();
     const { createNewUser, setUser } = useContext(AuthContext)
     const navigate = useNavigate();
 
-    const handleRegister = e => {
+    
+    const handleRegister = async (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const name = e.target.name.value;
         const password = e.target.password.value;
+        const imageFile = e.target.image.files[0]; 
 
-        console.log(name)
         const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
 
         if (!regex.test(password)) {
-
             toast.error('Password must be at least 6 characters long, contain at least one uppercase letter, one lowercase letter, and one special character.');
-
-
-
             return;
-
         }
-        createNewUser(email, password)
-            .then(result => {
+
+        try {
+         
+            const formData = new FormData();
+            formData.append('image', imageFile);
+
+    
+            const imgResponse = await axiosPublic.post(imgHostingApi, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+
+            if (imgResponse.data.success) {
+                const imageUrl = imgResponse.data.data.display_url;
+
+                const result = await createNewUser(email, password);
                 const registeredUser = result.user;
+                const profile = {
+                    displayName: name,
+                    photoURL: imageUrl
 
-                setUser(registeredUser)
-                toast.success('User Registered successfully')
-                navigate(location?.state ? location.state : '/')
-                console.log(registeredUser)
+                }
+                const userInfo = {
+                    displayName: name,
+                    email: email
 
+                }
 
+                updateProfile(auth.currentUser, profile)
+                    .then(() => {
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    toast.success('User Registered Successfully')
 
-            })
-            .catch(err => {
+                                }
+                            })
+                    })
 
-                toast.error(err.message)
+                setUser({
+                    ...registeredUser,
+                    name,
+                    photoURL: imageUrl, 
+                });
 
-            })
+                toast.success('User Registered successfully');
+                navigate(location?.state ? location.state : '/');
+            } else {
+                throw new Error('Image upload failed');
+            }
+        } catch (error) {
+            console.error(error);
+            toast.error(error.message || 'Something went wrong');
+        }
+    };
 
-    }
     return (
         <div className='p-10 mt-28 mb-20 h-full' style={{
             backgroundImage: `url(${bg})`,
@@ -98,6 +136,18 @@ const RegisterPage = () => {
 
 
 
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text text-xl">Profile Image</span>
+                                </label>
+                                <input
+                                    type="file"
+                                    name="image"
+
+                                    className="file-input file-input-bordered"
+                                    required
+                                />
                             </div>
 
 
