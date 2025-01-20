@@ -45,7 +45,7 @@ const NavBar = () => {
             </li>
             <li>
                 <NavLink
-                    to="/dashboard"
+                    to="/dashboard/myProfile"
                     style={({ isActive, isPending, isTransitioning }) => {
                         return {
                           fontWeight: isActive ? "bold" : "",

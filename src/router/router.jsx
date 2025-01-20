@@ -7,6 +7,10 @@ import {
 import Home from "../pages/Home/Home";
 import LoginPage from "../components/LoginPage/LoginPage";
 import RegisterPage from "../components/RegisterPage/RegisterPage";
+import Dashboard from "../Layout/DashBoard";
+import MyProfile from "../components/DashBoard/MyProfile";
+import MyApplication from "../components/DashBoard/MyApplication";
+import MyReviews from "../components/DashBoard/MyReviews";
 
 const router = createBrowserRouter([
     {
@@ -31,5 +35,24 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: 'dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
+
+            {
+                path: 'myProfile',
+                element: <MyProfile></MyProfile>
+            },
+            {
+                path: 'myApplication',
+                element: <MyApplication></MyApplication>
+            },
+            {
+                path: 'myReviews',
+                element: <MyReviews></MyReviews>
+            }
+        ]
+    }
 ]);
 export default router;

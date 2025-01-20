@@ -6,12 +6,13 @@ import loginLotiie from '../../assets/lottie/Animation - 1737369005126.json'
 import Lottie from 'lottie-react';
 import bg from '../../assets/img/9082953.jpg'
 import { toast } from 'react-toastify';
+import UseAxiosPublic from '../../hooks/UseAxiosPublic';
 const LoginPage = () => {
 
 
     const navigate = useNavigate();
     const location = useLocation();
-    // const axiosPublic = UseAxiosPublic();
+    const axiosPublic = UseAxiosPublic();
     const { userLogin, setUser, googleSignIn } = useContext(AuthContext);
 
 
@@ -24,15 +25,15 @@ const LoginPage = () => {
                 }
                 // console.log('rsult', result)
 
-                // axiosPublic.post('/users', userInfo)
-                //     .then(res => {
-                //         console.log(res.data)
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data)
 
                         toast.success('Login Successful');
 
                 navigate(location?.state ? location.state : '/')
 
-                //     })
+                    })
 
 
 

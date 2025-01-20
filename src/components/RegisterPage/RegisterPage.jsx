@@ -75,7 +75,7 @@ const RegisterPage = () => {
                     photoURL: imageUrl, 
                 });
 
-                toast.success('User Registered successfully');
+                
                 navigate(location?.state ? location.state : '/');
             } else {
                 throw new Error('Image upload failed');
