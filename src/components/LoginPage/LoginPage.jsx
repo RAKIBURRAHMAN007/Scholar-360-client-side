@@ -26,17 +26,19 @@ const LoginPage = () => {
                 }
                 // console.log('rsult', result)
 
+
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
                         console.log(res.data)
 
-                        toast.success('Login Successful');
 
-                        navigate(location?.state ? location.state : '/')
 
                     })
 
 
+                toast.success('Login Successful');
+
+                navigate(location?.state ? location.state : '/')
 
             })
 

@@ -1,32 +1,34 @@
 import { Children, createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import UseAxiosPublic from "../hooks/UseAxiosPublic";
 export const AuthContext = createContext();
 export const auth = getAuth(app);
 
 
 const AuthProvider = ({ children }) => {
-    
+    const axiosPublic = UseAxiosPublic();
+
     const [user, setUser] = useState(null);
-    const [loading , setLoading] = useState(true);
-    const googleProvider =new GoogleAuthProvider();
-    console.log(user,loading);
+    const [loading, setLoading] = useState(true);
+    const googleProvider = new GoogleAuthProvider();
+    console.log(user, loading);
     const createNewUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }
-    const googleSignIn = () =>{
+    const googleSignIn = () => {
         setLoading(true)
-        return signInWithPopup(auth,googleProvider);
-        
+        return signInWithPopup(auth, googleProvider);
+
 
     }
-    
-    const userLogin = (email,password) =>{
+
+    const userLogin = (email, password) => {
         setLoading(true)
-        return signInWithEmailAndPassword(auth,email,password);
+        return signInWithEmailAndPassword(auth, email, password);
     }
-    const logOut = () =>{
+    const logOut = () => {
         setLoading(true)
         signOut(auth);
     }
@@ -42,16 +44,30 @@ const AuthProvider = ({ children }) => {
 
 
     }
-    useEffect(()=>{
-        const unSubscribe = onAuthStateChanged(auth,(currentUser)=>{
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+            if (currentUser) {
+                const userInfo = { email: currentUser.email };
+
+                axiosPublic.post('/jwt', userInfo)
+                    .then(res => {
+                        if (res.data.token) {
+                            localStorage.setItem('access-token', res.data.token)
+                        }
+                    })
+            }
+            else {
+                localStorage.removeItem('access-token')
+
+            }
             setLoading(false)
         })
-        return () =>{
+        return () => {
             unSubscribe();
 
         }
-    },[])
+    }, [])
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

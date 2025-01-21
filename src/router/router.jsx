@@ -12,6 +12,7 @@ import MyProfile from "../components/DashBoard/MyProfile";
 import MyApplication from "../components/DashBoard/MyApplication";
 import MyReviews from "../components/DashBoard/MyReviews";
 import ManageUsers from "../components/DashBoard/ManageUsers";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
 
             {
