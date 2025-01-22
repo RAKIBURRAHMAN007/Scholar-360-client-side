@@ -13,6 +13,9 @@ import MyApplication from "../components/DashBoard/MyApplication";
 import MyReviews from "../components/DashBoard/MyReviews";
 import ManageUsers from "../components/DashBoard/ManageUsers";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import AdminProfile from "../components/DashBoard/AdminProfile";
+import AddScholarship from "../components/DashBoard/AddScholarShip";
 
 const router = createBrowserRouter([
     {
@@ -57,6 +60,14 @@ const router = createBrowserRouter([
             {
                 path: 'manageUsers',
                 element: <ManageUsers></ManageUsers>
+            },
+            {
+                path: 'adminProfile',
+                element: <AdminProfile></AdminProfile>
+            },
+            {
+                path: 'addScholarship',
+                element: <AddScholarship></AddScholarship>
             }
         ]
     }
