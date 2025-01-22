@@ -15,22 +15,25 @@ const Dashboard = () => {
     return (
         <div className="dashboard-container flex">
             {/* Sidebar Toggle Button */}
-            <button
-                onClick={toggleSidebar}
-                className="p-3 bg-gray-800 text-white fixed top-4 left-4 z-50 rounded-full"
-            >
-                {isSidebarOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+            <div>
+                <button
+                    onClick={toggleSidebar}
+                    className="p-3 bg-[#1d0153] border text-white fixed top-4 left-4 z-50 rounded-full"
+                >
+                    {isSidebarOpen ? <FaTimes size={35} /> : <FaBars size={35} />}
 
-            </button>
+                </button>
+            </div>
+
 
 
             {/* Sidebar */}
             <div
-                className={`fixed top-0 z-20 left-0 h-full bg-[#2c3792] text-white w-64 transition-transform overflow-y-auto transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`fixed top-0 z-20 left-0 h-full bg-[#1d0153]  border-r-4 backdrop-blur-2xl text-white w-64 transition-transform overflow-y-auto transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
             >
-                <h2 className="text-2xl font-semibold mt-12 p-4">Dashboard Overview</h2>
-                <ul className="mt-4 ">
+                <h2 className="text-xl font-semibold mt-28 p-4">Dashboard Overview</h2>
+                <ul className="mt-2 ">
 
                     {/* user links */}
                     {
@@ -163,14 +166,14 @@ const Dashboard = () => {
                     {/* Moderator Links */}
 
                     {
-                        isModerator &&  (
+                        isModerator && (
                             <>
                                 <li className='p-2 '>
                                     <NavLink
                                         className={({ isActive }) =>
                                             `flex items-center p-1 justify-start hover:bg-black gap-2 ${isActive ? 'font-extrabold text-yellow-500 ' : 'text-white'}`
                                         }
-                                        to="/dashboard/myProfile"
+                                        to="/dashboard/adminProfile"
                                     >
                                         <FaUser /> My Profile
                                     </NavLink>
@@ -237,10 +240,9 @@ const Dashboard = () => {
 
             {/* Main Content Area */}
             <div
-                className={`main-content flex-1 p-6  transition-transform ${isSidebarOpen ? '' : ''
-                    }`}
+                className={`main-content  transition-transform w-full `}
             >
-                <h1 className="text-3xl font-semibold mb-6 ml-12">Dashboard</h1>
+
                 <Outlet></Outlet>
             </div>
         </div>

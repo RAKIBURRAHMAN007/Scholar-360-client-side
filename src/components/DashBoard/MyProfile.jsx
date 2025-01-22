@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-const MyProfile = () => {
+const MyProfile = memo(() => {
     return (
         <div>
             
         </div>
     );
-};
+});
 
 export default MyProfile;
