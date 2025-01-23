@@ -6,6 +6,7 @@ import bg from '../../assets/img/9082953.jpg';
 import Swal from 'sweetalert2';
 import UseAxiosPublic from '../../hooks/UseAxiosPublic';
 import { AuthContext } from '../../provider/AuthProvider';
+import { Link } from 'react-router-dom';
 const imgHostingKey = import.meta.env.VITE_imgHostingKey;
 const imgHostingApi = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`
 const ManageScholarship = () => {
@@ -53,7 +54,9 @@ const ManageScholarship = () => {
             serviceCharge: form.serviceCharge.value,
             applicationDeadline: form.applicationDeadline.value,
             scholarshipPostDate: form.scholarshipPostDate.value,
+            ScholarshipDescription: form.ScholarshipDescription.value,
             email: user.email,
+
         };
 
         try {
@@ -194,9 +197,10 @@ const ManageScholarship = () => {
                                         <td>${scholarship.applicationFees}</td>
                                         <td className="flex flex-col gap-2">
 
-                                            <button className="flex gap-1 justify-center items-center rounded-md bg-blue-400 btn-ghost btn-sm">
-                                                <FaEye /> Details
-                                            </button>
+                                            <Link to={`/scholarshipDetails/${scholarship._id}`}>
+                                                <button className="flex gap-1 justify-center items-center rounded-md bg-blue-400 btn-ghost btn-sm">
+                                                    <FaEye /> Details
+                                                </button></Link>
                                             <button
                                                 onClick={() => handleEdit(scholarship)}
                                                 className="flex gap-1 justify-center items-center rounded-md bg-yellow-300 btn-ghost btn-sm"
@@ -404,6 +408,19 @@ const ManageScholarship = () => {
                                     defaultValue={selectedScholarship.serviceCharge} // 
                                 />
                             </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text text-xl">Scholarship Description</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="Scholarship Description"
+                                    name="ScholarshipDescription"
+                                    className="input input-bordered"
+                                    required
+                                />
+                            </div>
+
 
                             <div className="form-control">
                                 <label className="label">

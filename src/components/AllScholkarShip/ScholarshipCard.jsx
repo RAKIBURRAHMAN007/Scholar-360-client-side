@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ScholarshipCard = ({ scholarship }) => {
     const {
@@ -12,6 +13,7 @@ const ScholarshipCard = ({ scholarship }) => {
         applicationFees,
         applicationDeadline,
         rating,
+        _id
     } = scholarship;
 
     return (
@@ -67,9 +69,9 @@ const ScholarshipCard = ({ scholarship }) => {
 
 
                 <div className="mt-4">
-                    <button className="w-full bg-[#2c3792] text-white py-2 px-4 rounded-md hover:bg-gray-300 hover:text-black transition">
+                    <Link to={`/scholarshipDetails/${_id}`}> <button className="w-full bg-[#2c3792] text-white py-2 px-4 rounded-md hover:bg-gray-300 hover:text-black transition">
                         View Scholarship Details
-                    </button>
+                    </button></Link>
                 </div>
             </div>
         </div>

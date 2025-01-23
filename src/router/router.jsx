@@ -3,6 +3,7 @@ import AllScholarShip from "../components/AllScholkarShip/AllScholarShip";
 import {
     createBrowserRouter,
     RouterProvider,
+    useParams,
 } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import LoginPage from "../components/LoginPage/LoginPage";
@@ -17,6 +18,7 @@ import AdminRoute from "./AdminRoute";
 import AdminProfile from "../components/DashBoard/AdminProfile";
 import AddScholarship from "../components/DashBoard/AddScholarShip";
 import ManageScholarship from "../components/DashBoard/ManageScholarship";
+import ScholarshipDetails from "../components/ScholarshipDetails/ScholarshipDetails";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +40,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <RegisterPage></RegisterPage>
+            },
+            {
+                path: '/scholarshipDetails/:id',
+                element: <PrivateRoute><ScholarshipDetails></ScholarshipDetails></PrivateRoute>
             }
         ]
     },

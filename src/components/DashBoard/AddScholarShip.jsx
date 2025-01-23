@@ -43,6 +43,7 @@ const AddScholarship = () => {
                     serviceCharge: form.serviceCharge.value,
                     applicationDeadline: form.applicationDeadline.value,
                     scholarshipPostDate: form.scholarshipPostDate.value,
+                    ScholarshipDescription: form.ScholarshipDescription.value,
                     email: user.email,
                 };
 
@@ -254,6 +255,18 @@ const AddScholarship = () => {
                                 type="number"
                                 placeholder="Service Charge"
                                 name="serviceCharge"
+                                className="input input-bordered"
+                                required
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text text-xl">Scholarship Description</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Scholarship Description"
+                                name="ScholarshipDescription"
                                 className="input input-bordered"
                                 required
                             />
