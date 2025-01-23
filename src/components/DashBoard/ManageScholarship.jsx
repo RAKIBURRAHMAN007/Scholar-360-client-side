@@ -143,7 +143,7 @@ const ManageScholarship = () => {
     };
 
     return (
-        <div className="relative  h-screen p-2"
+        <div className="relative   p-2"
             style={{
                 backgroundImage: `url(${bg})`,
                 width: "full",
@@ -160,7 +160,7 @@ const ManageScholarship = () => {
                     Manage Scholarship
                 </h1>
 
-                <div className="md:w-11/12 mx-auto bg-white mt-10 rounded-lg shadow-lg">
+                <div className="w-11/12 mx-auto bg-white mt-10 rounded-lg shadow-lg">
                     <div className="overflow-x-auto">
                         <table className="table">
                             <thead>
