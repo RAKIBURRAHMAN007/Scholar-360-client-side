@@ -1,11 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import UseAxiosPublic from '../../hooks/UseAxiosPublic';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+
 
 const ScholarshipDetails = () => {
     const { id } = useParams();
     const axiosPublic = UseAxiosPublic();
+
+ 
+
 
 
     const { data: Scholarship = [] } = useQuery({
@@ -15,6 +19,7 @@ const ScholarshipDetails = () => {
             return res.data;
         },
     });
+   
 
     return (
         <div className="w-11/12 mx-auto mt-28 mb-16">
@@ -76,6 +81,7 @@ const ScholarshipDetails = () => {
                         </tr>
                     </tbody>
                 </table>
+
             </div>
 
 
@@ -88,14 +94,15 @@ const ScholarshipDetails = () => {
 
 
             <div className="mt-8 flex justify-center">
-                <a
-                    href={`mailto:${Scholarship.email}`}
-                    className="px-6 py-3 bg-blue-500 text-white rounded-lg text-lg font-semibold hover:bg-blue-700"
+                <Link
+                    to={ `/payment/${id}` }
+                    className="px-6 py-3 bg-[#2c3792] text-white rounded-lg text-lg font-semibold hover:bg-blue-700"
+                    
                 >
                     Apply for Scholarship
-                </a>
+                </Link>
             </div>
-        </div>
+        </div >
     );
 };
 

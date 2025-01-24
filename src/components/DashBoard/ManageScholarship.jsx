@@ -417,7 +417,8 @@ const ManageScholarship = () => {
                                     placeholder="Scholarship Description"
                                     name="ScholarshipDescription"
                                     className="input input-bordered"
-                                    required
+                                    defaultValue={selectedScholarship.ScholarshipDescription}
+                                    
                                 />
                             </div>
 

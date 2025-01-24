@@ -4,14 +4,16 @@ import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import bg from '../../assets/img/9082953.jpg'
 import UseAxiosPublic from '../../hooks/UseAxiosPublic';
+import UseAxiosSecure from '../../hooks/UseAxiosSecure';
 
 const MyProfile = () => {
     const { user, logOut } = useContext(AuthContext);
     const axiosPublic = UseAxiosPublic();
+    const axiosSecure = UseAxiosSecure()
     const { data: userData = [] } = useQuery({
-        queryKey: ['adminData'],
+        queryKey: ['user.email'],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/normalUsers/${user.email}`)
+            const res = await axiosSecure.get(`/normalUsers/${user.email}`)
             return res.data;
         }
     })

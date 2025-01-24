@@ -19,6 +19,7 @@ import AdminProfile from "../components/DashBoard/AdminProfile";
 import AddScholarship from "../components/DashBoard/AddScholarShip";
 import ManageScholarship from "../components/DashBoard/ManageScholarship";
 import ScholarshipDetails from "../components/ScholarshipDetails/ScholarshipDetails";
+import Payment from "../components/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
             {
                 path: '/scholarshipDetails/:id',
                 element: <PrivateRoute><ScholarshipDetails></ScholarshipDetails></PrivateRoute>
+            },
+            {
+                path: '/payment/:id',
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>
             }
         ]
     },

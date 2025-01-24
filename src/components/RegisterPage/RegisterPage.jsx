@@ -15,27 +15,32 @@ const RegisterPage = () => {
     const { createNewUser, setUser } = useContext(AuthContext)
     const navigate = useNavigate();
 
-    
+
     const handleRegister = async (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const name = e.target.name.value;
         const password = e.target.password.value;
-        const imageFile = e.target.image.files[0]; 
+        const imageFile = e.target.image.files[0];
 
         const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
+        const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 
+        if (!emailRegex.test(email)) {
+            toast.error('Please enter a valid email address.');
+            return;
+        }
         if (!regex.test(password)) {
             toast.error('Password must be at least 6 characters long, contain at least one uppercase letter, one lowercase letter, and one special character.');
             return;
         }
 
         try {
-         
+
             const formData = new FormData();
             formData.append('image', imageFile);
 
-    
+
             const imgResponse = await axiosPublic.post(imgHostingApi, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -73,10 +78,10 @@ const RegisterPage = () => {
                 setUser({
                     ...registeredUser,
                     name,
-                    photoURL: imageUrl, 
+                    photoURL: imageUrl,
                 });
 
-                
+
                 navigate(location?.state ? location.state : '/');
             } else {
                 throw new Error('Image upload failed');
