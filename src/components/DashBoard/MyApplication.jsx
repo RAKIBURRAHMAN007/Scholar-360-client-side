@@ -3,7 +3,6 @@ import { useQuery } from '@tanstack/react-query';
 import UseAxiosSecure from '../../hooks/UseAxiosSecure';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
-import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 
 const MyApplication = () => {
@@ -20,19 +19,15 @@ const MyApplication = () => {
         },
     });
 
-
-
     const handleEdit = (status) => {
         if (status === 'pending') {
             Swal.fire('Edit functionality goes here');
-
         } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Cannot Edit',
                 text: 'You can only edit applications with a pending status.',
             });
-
         }
     };
 
@@ -76,16 +71,22 @@ const MyApplication = () => {
             date: new Date().toLocaleDateString(),
             scholarshipName: selectedScholarship.scholarshipName,
             universityName: selectedScholarship.universityName,
-            universityId: selectedScholarship.universityId,
+            scholarshipId: selectedScholarship.scholarshipId,
             userName: user.displayName,
             userEmail: user.email,
             userImage: user.photoURL || '',
         };
 
-        axiosSecure.post('/addReview', review).then(() => {
-            Swal.fire('Review Submitted!', 'Your review has been added.', 'success');
-            setModalIsOpen(false);
-        });
+        axiosSecure.post('/reviews', review)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        title: "Reviews Added!",
+                        text: "The scholarship Review has been successfully added.",
+                        icon: "success"
+                    });
+                }
+            })
     };
 
     return (
@@ -118,12 +119,7 @@ const MyApplication = () => {
                                 <td className="border border-gray-300 p-2">${application.serviceCharge}</td>
                                 <td className="border border-gray-300 p-2">{application.Status}</td>
                                 <td className="border border-gray-300 p-2 flex flex-col gap-2">
-                                    <Link className="bg-blue-500 text-white px-2 py-1 rounded" to={`/scholarshipDetails/${application.scholarshipId}`}><button
-
-                                        
-                                    >
-                                        Details
-                                    </button></Link>
+                                    <Link className="bg-blue-500 text-white px-2 py-1 rounded" to={`/scholarshipDetails/${application.scholarshipId}`}><button>Details</button></Link>
                                     <button
                                         onClick={() => handleEdit(application.Status)}
                                         className="bg-green-500 text-white px-2 py-1 rounded"
@@ -149,33 +145,44 @@ const MyApplication = () => {
                 </table>
             </div>
 
-            <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
-                <h2 className="text-xl font-bold mb-4">Add Review</h2>
-                <form onSubmit={submitReview}>
-                    <div className="mb-4">
-                        <label className="block mb-1">Rating</label>
-                        <input
-                            type="number"
-                            name="rating"
-                            min="1"
-                            max="5"
-                            required
-                            className="w-full border border-gray-300 p-2 rounded"
-                        />
+            {/* Modal Implementation */}
+            {modalIsOpen && (
+                <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center z-50">
+                    <div className="bg-white w-96 p-6 rounded-lg relative">
+                        <button
+                            onClick={() => setModalIsOpen(false)}
+                            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl"
+                        >
+                            ✖
+                        </button>
+                        <h2 className="text-xl font-bold mb-4">Add Review</h2>
+                        <form onSubmit={submitReview}>
+                            <div className="mb-4">
+                                <label className="block mb-1">Rating</label>
+                                <input
+                                    type="number"
+                                    name="rating"
+                                    min="1"
+                                    max="5"
+                                    required
+                                    className="w-full border border-gray-300 p-2 rounded"
+                                />
+                            </div>
+                            <div className="mb-4">
+                                <label className="block mb-1">Comment</label>
+                                <textarea
+                                    name="comment"
+                                    required
+                                    className="w-full border border-gray-300 p-2 rounded"
+                                ></textarea>
+                            </div>
+                            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+                                Submit Review
+                            </button>
+                        </form>
                     </div>
-                    <div className="mb-4">
-                        <label className="block mb-1">Comment</label>
-                        <textarea
-                            name="comment"
-                            required
-                            className="w-full border border-gray-300 p-2 rounded"
-                        ></textarea>
-                    </div>
-                    <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
-                        Submit Review
-                    </button>
-                </form>
-            </Modal>
+                </div>
+            )}
         </div>
     );
 };

@@ -97,35 +97,35 @@ const CheckOutFrom = ({ Scholarship }) => {
             });
         }
 
-        setIsProcessing(false); 
+        setIsProcessing(false);
     };
     const handleApplySubmit = async (e) => {
         e.preventDefault();
 
-        const form = e.target; 
-        const imageFile = e.target.userImage.files[0];  
+        const form = e.target;
+        const imageFile = e.target.userImage.files[0];
 
 
         try {
-           
+
             const formData = new FormData();
             formData.append('image', imageFile);
 
-          
+
             const imgResponse = await axiosPublic.post(imgHostingApi, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             });
 
-          
+
             if (imgResponse.data.success) {
                 const imageUrl = imgResponse.data.data.display_url;
                 const currentDate = new Date().toISOString();
-                
+
                 const applicationData = {
                     phone: form.phone.value,
-                    photo: imageUrl, 
+                    photo: imageUrl,
                     address: form.address.value,
                     gender: form.gender.value,
                     degree: form.degree.value,
@@ -142,23 +142,24 @@ const CheckOutFrom = ({ Scholarship }) => {
                     universityAddress: Scholarship.universityCountry,
                     applicationFees: Scholarship.applicationFees,
                     serviceCharge: Scholarship.serviceCharge,
+                    scholarshipName: Scholarship.scholarshipName,
                     scholarshipId: Scholarship._id,
                     applicationDate: currentDate
                 };
 
                 console.log('Application Data with Uploaded Image URL:', applicationData);
 
-                axiosSecure.post('/appliedScholarships',applicationData)
-                .then(res => {
-                    if (res.data.insertedId) {
-                        toast.success('Your application has been submitted successfully!')
-                        setModalOpen(false)
-                       
+                axiosSecure.post('/appliedScholarships', applicationData)
+                    .then(res => {
+                        if (res.data.insertedId) {
+                            toast.success('Your application has been submitted successfully!')
+                            setModalOpen(false)
 
 
-                    }
-                    // navigate('/dashboard')
-                })
+
+                        }
+                        // navigate('/dashboard')
+                    })
             } else {
                 console.error('Image upload failed:', imgResponse.data.error.message);
             }
@@ -393,7 +394,7 @@ const CheckOutFrom = ({ Scholarship }) => {
                             </div>
 
                             <div className="form-control mt-6">
-                                <button  className="btn btn-primary hover:bg-slate-500 bg-[#162e40] text-white w-full">
+                                <button className="btn btn-primary hover:bg-slate-500 bg-[#162e40] text-white w-full">
                                     Submit
                                 </button>
                             </div>
