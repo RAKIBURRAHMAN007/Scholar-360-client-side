@@ -351,9 +351,9 @@ const CheckOutFrom = ({ Scholarship }) => {
                                     className="select select-bordered w-full"
                                 >
                                     <option value="">Study Gap (optional)</option>
-                                    <option value="0">1 years</option>
-                                    <option value="1">2 year</option>
-                                    <option value="2">3 years</option>
+                                    <option value="1">1 years</option>
+                                    <option value="2">2 year</option>
+                                    <option value="3">3 years</option>
                                 </select>
                             </div>
 
