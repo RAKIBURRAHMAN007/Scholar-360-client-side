@@ -138,6 +138,10 @@ const CheckOutFrom = ({ Scholarship }) => {
                     userName: user.displayName,
                     userMail: user.email,
                     userId: userDetail._id,
+                    Status: "pending",
+                    universityAddress: Scholarship.universityCountry,
+                    applicationFees: Scholarship.applicationFees,
+                    serviceCharge: Scholarship.serviceCharge,
                     scholarshipId: Scholarship._id,
                     applicationDate: currentDate
                 };
