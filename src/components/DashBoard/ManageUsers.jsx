@@ -136,20 +136,20 @@ const ManageUsers = () => {
         });
     }
     return (
-        <div className='h-screen relative p-2 '
+        <div className='min-h-screen    '
             style={{
                 backgroundImage: `url(${bg})`,
-                width: "full",
+                
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
 
             }}>
-            <div className="absolute inset-0  bg-black bg-opacity-40 backdrop-blur-sm">
-                <div className='relative z-10  '>
-                    <h1 className='text-center font-bold md:text-3xl mt-5 text-xl text-white'>Manage Users ({users.length})</h1>
+            <div className=" bg-black bg-opacity-50 backdrop-blur-sm">
+                <div className=' '>
+                    <h1 className='text-center font-bold md:text-3xl py-5 text-xl text-white'>Manage Users ({users.length})</h1>
                     <div className='w-11/12 mx-auto  bg-white mt-10 rounded-lg shadow-lg'>
-                        <div className="overflow-x-auto">
+                        <div className="overflow-x-auto md::overflow-y-auto">
                             <table className="table  table-zebra w-full">
                                 {/* head */}
                                 <thead>
