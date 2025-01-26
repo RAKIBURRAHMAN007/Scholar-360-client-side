@@ -144,7 +144,8 @@ const CheckOutFrom = ({ Scholarship }) => {
                     serviceCharge: Scholarship.serviceCharge,
                     scholarshipName: Scholarship.scholarshipName,
                     scholarshipId: Scholarship._id,
-                    applicationDate: currentDate
+                    applicationDate: currentDate,
+                    deadLine: Scholarship.applicationDeadline
                 };
 
                 console.log('Application Data with Uploaded Image URL:', applicationData);

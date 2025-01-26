@@ -12,10 +12,13 @@ const ManageAppliedScholarship = () => {
     const [SelectedApplicationFeedback, setSelectedApplicationFeedback] = useState(null);
     const [feedbackModal, setFeedbackModal] = useState(false);
 
+    // State for sorting/filtering
+    const [filterOption, setFilterOption] = useState('appliedDate');
+
     const { data: allAppliedScholarships = [], refetch } = useQuery({
-        queryKey: ['allAppliedScholarships'],
+        queryKey: ['allAppliedScholarships', filterOption],
         queryFn: async () => {
-            const res = await axiosSecure.get('/allAppliedScholarship');
+            const res = await axiosSecure.get(`/allAppliedScholarship?sortBy=${filterOption}`);
             return res.data;
         },
     });
@@ -40,11 +43,11 @@ const ManageAppliedScholarship = () => {
                             Swal.fire({
                                 position: "top-center",
                                 icon: "success",
-                                title: `cancelled & status changed! `,
+                                title: `Cancelled & status changed! `,
                                 showConfirmButton: false,
                                 timer: 1500
                             });
-                            
+
                         }
                     });
 
@@ -87,6 +90,19 @@ const ManageAppliedScholarship = () => {
             <div className="relative z-10">
                 <div className="w-11/12 mx-auto">
                     <h1 className="text-white text-xl md:text-3xl font-bold py-7 text-center">Manage Applied <br /> Scholarships</h1>
+
+                    {/* Sorting/Filtering Dropdown */}
+                    <div className="flex justify-center mb-4">
+                        <select
+                            value={filterOption}
+                            onChange={(e) => setFilterOption(e.target.value)}
+                            className="bg-gray-800 text-white px-4 py-2 rounded"
+                        >
+                            <option value="applicationDate">Sort by Applied Date</option>
+                            <option value="deadLine">Sort by Scholarship Deadline</option>
+                        </select>
+                    </div>
+
                     <div className="overflow-x-auto">
                         <table className="table-auto w-full text-left text-white">
                             <thead>
