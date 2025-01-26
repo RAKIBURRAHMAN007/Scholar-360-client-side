@@ -20,11 +20,13 @@ import AddScholarship from "../components/DashBoard/AddScholarShip";
 import ManageScholarship from "../components/DashBoard/ManageScholarship";
 import ScholarshipDetails from "../components/ScholarshipDetails/ScholarshipDetails";
 import Payment from "../components/Payment/Payment";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -55,6 +57,7 @@ const router = createBrowserRouter([
     {
         path: 'dashboard',
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
 
             {

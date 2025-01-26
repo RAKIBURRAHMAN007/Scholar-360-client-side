@@ -161,7 +161,7 @@ const MyApplication = () => {
 
 
     return (
-        <div className='min-h-screen  '
+        <div className='min-h-screen  relative '
             style={{
                 backgroundImage: `url(${bg})`,
                 width: "full",
@@ -170,7 +170,8 @@ const MyApplication = () => {
                 backgroundPosition: 'center',
 
             }}>
-            <div className=" bg-black bg-opacity-50 backdrop-blur-sm">
+            <div className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
+            <div className=" relative z-10">
                 <div className=' '>
                     <div className=" w-11/12 mx-auto py-8 text-white">
                         <h1 className="text-2xl text-center font-bold mb-6">My Applications</h1>

@@ -82,7 +82,7 @@ const MyReviews = () => {
 
     return (
         <div
-            className="min-h-screen "
+            className="min-h-screen  relative"
             style={{
                 backgroundImage: `url(${bg})`,
 
@@ -90,8 +90,8 @@ const MyReviews = () => {
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
             }}
-        >
-            <div className=" bg-black bg-opacity-40 backdrop-blur-sm">
+        >   <div className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
+            <div className=" relative z-10 ">
                 <div className="w-11/12 mx-auto py-7">
                     <div className="p-4">
                         <h1 className="text-white text-2xl text-center mb-4">My Reviews</h1>
