@@ -32,7 +32,7 @@ const MyApplication = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Cannot Edit',
-                text: 'You can only edit applications with a pending status.',
+                text: 'You can only edit applications with a rejected status.',
             });
         }
     };

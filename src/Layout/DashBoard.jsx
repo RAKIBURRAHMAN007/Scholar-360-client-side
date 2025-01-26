@@ -193,7 +193,7 @@ const Dashboard = () => {
                                         className={({ isActive }) =>
                                             `flex items-center p-1 justify-start hover:bg-black gap-2 ${isActive ? 'font-extrabold text-yellow-500 ' : 'text-white'}`
                                         }
-                                        to="/dashboard/allReviews"
+                                        to="/dashboard/manageReviews"
                                     >
                                         <FaStar /> All Reviews
                                     </NavLink>
@@ -203,7 +203,7 @@ const Dashboard = () => {
                                         className={({ isActive }) =>
                                             `flex items-center p-1 justify-start hover:bg-black gap-2 ${isActive ? 'font-extrabold text-yellow-500 ' : 'text-white'}`
                                         }
-                                        to="/dashboard/allAppliedScholarships"
+                                        to="/dashboard/manageApplications"
                                     >
                                         <FaClipboardCheck /> All Applied Scholarships
                                     </NavLink>

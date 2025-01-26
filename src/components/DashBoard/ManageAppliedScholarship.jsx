@@ -12,7 +12,7 @@ const ManageAppliedScholarship = () => {
     const [SelectedApplicationFeedback, setSelectedApplicationFeedback] = useState(null);
     const [feedbackModal, setFeedbackModal] = useState(false);
 
-    const { data: allAppliedScholarships = [],refetch } = useQuery({
+    const { data: allAppliedScholarships = [], refetch } = useQuery({
         queryKey: ['allAppliedScholarships'],
         queryFn: async () => {
             const res = await axiosSecure.get('/allAppliedScholarship');
@@ -30,10 +30,24 @@ const ManageAppliedScholarship = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, cancel it!',
-        }).then(async (result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-                await axiosSecure.delete(`/cancelApplication/${id}`);
-                Swal.fire('Cancelled!', 'The application has been cancelled.', 'success');
+                const Status = 'rejected';
+                axiosSecure.patch(`/appliedScholarshipStatus/${id}`, { Status })
+                    .then(res => {
+                        if (res.data.modifiedCount > 0) {
+                            refetch();
+                            Swal.fire({
+                                position: "top-center",
+                                icon: "success",
+                                title: `cancelled & status changed! `,
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            
+                        }
+                    });
+
             }
         });
     };
@@ -41,7 +55,7 @@ const ManageAppliedScholarship = () => {
     const handleFeedbackSubmit = (e) => {
         e.preventDefault();
         const feedback = e.target.feedback.value;
-        axiosSecure.patch(`/appliedScholarshipFeedback/${SelectedApplicationFeedback._id}`, {feedback})
+        axiosSecure.patch(`/appliedScholarshipFeedback/${SelectedApplicationFeedback._id}`, { feedback })
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     refetch();
@@ -55,8 +69,8 @@ const ManageAppliedScholarship = () => {
                     setFeedbackModal(false);
                 }
             });
-       
-      
+
+
     };
 
     return (
