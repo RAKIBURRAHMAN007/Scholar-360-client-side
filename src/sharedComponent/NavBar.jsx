@@ -3,24 +3,28 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 
 import logo from '../assets/img/1.png'
 import { AuthContext } from '../provider/AuthProvider';
+import UseAdmin from '../hooks/UseAdmin';
+import UseModerator from '../hooks/UseModerator';
 const NavBar = () => {
     const { logOut, user } = useContext(AuthContext);
     const location = useLocation();
+    const [isAdmin, isAdminLoading] = UseAdmin();
+    const [isModerator, isModeratorLoading] = UseModerator();
 
-    const links = (
+    const links =
         <>
             <li>
                 <NavLink
                     to="/"
                     style={({ isActive, isPending, isTransitioning }) => {
                         return {
-                          fontWeight: isActive ? "bold" : "",
-                          
-                          backgroundColor: isActive ? '#2c3792' : '',
-                          color: isPending ? "red" : "",
-                          viewTransitionName: isTransitioning ? "slide" : "",
+                            fontWeight: isActive ? "bold" : "",
+
+                            backgroundColor: isActive ? '#2c3792' : '',
+                            color: isPending ? "red" : "",
+                            viewTransitionName: isTransitioning ? "slide" : "",
                         };
-                      }}
+                    }}
                     className=" hover:text-[#2c3792]  p-2 rounded font-medium hover:font-bold"
                 >
                     Home
@@ -31,54 +35,85 @@ const NavBar = () => {
                     to="/allScholarship"
                     style={({ isActive, isPending, isTransitioning }) => {
                         return {
-                          fontWeight: isActive ? "bold" : "",
-                          
-                          backgroundColor: isActive ? '#2c3792' : '',
-                          color: isPending ? "red" : "",
-                          viewTransitionName: isTransitioning ? "slide" : "",
+                            fontWeight: isActive ? "bold" : "",
+
+                            backgroundColor: isActive ? '#2c3792' : '',
+                            color: isPending ? "red" : "",
+                            viewTransitionName: isTransitioning ? "slide" : "",
                         };
-                      }}
+                    }}
                     className=" hover:text-[#2c3792] p-2 rounded font-medium hover:font-bold"
                 >
                     All Scholarship
                 </NavLink>
             </li>
-            <li>
-                <NavLink
-                    to="/dashboard"
-                    style={({ isActive, isPending, isTransitioning }) => {
-                        return {
-                          fontWeight: isActive ? "bold" : "",
-                          
-                          backgroundColor: isActive ? '#2c3792' : '',
-                          color: isPending ? "red" : "",
-                          viewTransitionName: isTransitioning ? "slide" : "",
-                        };
-                      }}
-                    className=" hover:text-[#2c3792] p-2 rounded font-medium hover:font-bold"
-                >
-                    Dashboard
-                </NavLink>
-            </li>
-            {/* <li>
-                <NavLink
-                    to="/aboutUs"
-                    style={({ isActive, isPending, isTransitioning }) => {
-                        return {
-                          fontWeight: isActive ? "bold" : "",
-                          
-                          backgroundColor: isActive ? '#2c3792' : '',
-                          color: isPending ? "red" : "",
-                          viewTransitionName: isTransitioning ? "slide" : "",
-                        };
-                      }}
-                    className=" hover:text-[#2c3792] font-medium hover:font-bold p-2 rounded"
-                >
-                    About-Us
-                </NavLink>
-            </li> */}
+
+            {
+                isAdmin && <li>
+
+                    <NavLink
+                        to="/dashboard/adminProfile"
+                        style={({ isActive, isPending, isTransitioning }) => {
+                            return {
+                                fontWeight: isActive ? "bold" : "",
+
+                                backgroundColor: isActive ? '#2c3792' : '',
+                                color: isPending ? "red" : "",
+                                viewTransitionName: isTransitioning ? "slide" : "",
+                            };
+                        }}
+                        className=" hover:text-[#2c3792] p-2 rounded font-medium hover:font-bold"
+                    >
+                        Dashboard
+                    </NavLink>
+
+                </li>
+            }
+            {
+                isModerator && <li>
+
+                    <NavLink
+                        to="/dashboard/adminProfile"
+                        style={({ isActive, isPending, isTransitioning }) => {
+                            return {
+                                fontWeight: isActive ? "bold" : "",
+
+                                backgroundColor: isActive ? '#2c3792' : '',
+                                color: isPending ? "red" : "",
+                                viewTransitionName: isTransitioning ? "slide" : "",
+                            };
+                        }}
+                        className=" hover:text-[#2c3792] p-2 rounded font-medium hover:font-bold"
+                    >
+                        Dashboard
+                    </NavLink>
+
+                </li>
+            }
+            {
+                !isAdmin && !isModerator && <li>
+
+                    <NavLink
+                        to="/dashboard/myProfile"
+                        style={({ isActive, isPending, isTransitioning }) => {
+                            return {
+                                fontWeight: isActive ? "bold" : "",
+
+                                backgroundColor: isActive ? '#2c3792' : '',
+                                color: isPending ? "red" : "",
+                                viewTransitionName: isTransitioning ? "slide" : "",
+                            };
+                        }}
+                        className=" hover:text-[#2c3792] p-2 rounded font-medium hover:font-bold"
+                    >
+                        Dashboard
+                    </NavLink>
+
+                </li>
+            }
+
         </>
-    );
+
 
 
     return (

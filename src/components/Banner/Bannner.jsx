@@ -6,6 +6,7 @@ import img1 from "../../assets/img/banner1.jpg";
 import img2 from "../../assets/img/banner2.jpg";
 
 import video from '../../assets/img/1477627_Education_People_3840x2160.mp4';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -46,7 +47,7 @@ const Banner = () => {
                                 Explore endless opportunities with our exclusive scholarship programs. Let us help you achieve your dreams.
                             </p>
                             <button className="bg-[#2c3792] hover:bg-[#1a256e] text-white font-medium text-sm md:text-base py-1 px-3 md:py-2 md:px-4 rounded">
-                                <a href="/scholarships">Explore Scholarships</a>
+                                <Link to="/allScholarship">Explore Scholarships</Link>
                             </button>
                         </div>
                     </div>
@@ -62,7 +63,7 @@ const Banner = () => {
                                 Grab a <span className='font-bold underline text-red-800'>30%</span> discount on scholarship processing fees and take the first step toward your dream education.
                             </p>
                             <button className="bg-[#2c3792] hover:bg-[#1a256e] text-white font-medium text-sm md:text-base py-1 px-3 md:py-2 md:px-4 rounded">
-                                <a href="/discounts">Claim Your Discount</a>
+                                <Link to="/allScholarship">Claim Your Discount</Link>
                             </button>
                         </div>
                     </div>

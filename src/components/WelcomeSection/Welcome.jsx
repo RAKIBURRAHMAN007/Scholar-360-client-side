@@ -16,7 +16,7 @@ const Welcome = () => {
 
                 </div>
                 <div className="md:w-1/5 ">
-                    <Link to="/login" className="text-white mt-2">
+                    <Link to="/allScholarship" className="text-white mt-2">
                         <button className="btn text-white bg-[#2c3792]  border-white hover:text-black">Apply Now</button>
                     </Link>
 
