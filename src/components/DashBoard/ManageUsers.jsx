@@ -140,7 +140,7 @@ const ManageUsers = () => {
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
             }}>
-            <div className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-md"></div>
             <div className="relative z-10  ">
                 <div className=''>
                     <h1 className='font-bold text-center md:text-3xl py-5 text-xl text-white'>
@@ -160,10 +160,10 @@ const ManageUsers = () => {
                             <option value="user">User</option>
                         </select>
                     </div>
-                    <div className='w-11/12 mx-auto bg-white mt-10 rounded-lg shadow-lg'>
+                    <div className='w-11/12 mx-auto text-white mt-10 rounded-lg shadow-lg'>
                         <div className="overflow-x-auto">
-                            <table className="table table-zebra w-full">
-                                <thead>
+                            <table className="table  w-full">
+                                <thead className='bg-white text-black'>
                                     <tr>
                                         <th></th>
                                         <th>Name</th>

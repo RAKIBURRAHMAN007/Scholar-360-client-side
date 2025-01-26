@@ -156,17 +156,17 @@ const ManageScholarship = () => {
 
             }}
         >
-            <div className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-md"></div>
 
             <div className="relative z-10">
                 <h1 className="text-center text-white font-bold text-xl md:text-5xl pt-3 mb-3">
                     Manage Scholarship
                 </h1>
 
-                <div className="w-11/12 mx-auto bg-white mt-10 rounded-lg shadow-lg">
+                <div className="w-11/12 mx-auto text-white mt-10 rounded-lg shadow-lg">
                     <div className="overflow-x-auto">
                         <table className="table">
-                            <thead>
+                            <thead className='bg-white text-black'>
                                 <tr>
                                     <th>
                                         <label>
