@@ -13,7 +13,6 @@ import {
     Legend
 } from 'chart.js';
 
-// Register required Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Tooltip, Legend);
 
 const AnalyticChart = () => {
@@ -30,7 +29,7 @@ const AnalyticChart = () => {
         return <p>Loading...</p>;
     }
 
-    // Bar Chart Data
+    
     const barData = {
         labels: ['Users', 'Scholarships', 'Applications', 'Reviews'],
         datasets: [
