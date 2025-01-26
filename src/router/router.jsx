@@ -24,6 +24,7 @@ import ErrorPage from "../components/ErrorPage/ErrorPage";
 import ManageReviews from "../components/DashBoard/ManageReviews";
 import ManageAppliedScholarship from "../components/DashBoard/ManageAppliedScholarship";
 import DashBoardHome from "../components/DashBoard/DashBoardHome";
+import AnalyticChart from "../components/DashBoard/AnalyticChart";
 
 const router = createBrowserRouter([
     {
@@ -102,6 +103,10 @@ const router = createBrowserRouter([
             {
                 path: 'dashBoardHome',
                 element: <DashBoardHome></DashBoardHome>
+            },
+            {
+                path: 'analytics',
+                element: <AnalyticChart></AnalyticChart>
             }
         ]
     }

@@ -3,7 +3,8 @@ import { Link, NavLink, Outlet } from 'react-router-dom';
 import { FaBars, FaClipboardCheck, FaClipboardList, FaHome, FaPlus, FaStar, FaTasks, FaTimes, FaUser, FaUsers } from 'react-icons/fa';
 import UseAdmin from '../hooks/UseAdmin';
 import UseModerator from '../hooks/UseModerator';
-import { FaHouseMedicalCircleExclamation, FaHouseTsunami } from 'react-icons/fa6';
+import { FaChartPie, FaHouseMedicalCircleExclamation, FaHouseTsunami } from 'react-icons/fa6';
+import AnalyticChart from '../components/DashBoard/AnalyticChart';
 
 const Dashboard = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -149,6 +150,16 @@ const Dashboard = () => {
                                         to="/dashboard/manageReviews"
                                     >
                                         <FaStar /> Manage Reviews
+                                    </NavLink>
+                                </li>
+                                <li className='p-2 '>
+                                    <NavLink
+                                        className={({ isActive }) =>
+                                            `flex items-center p-1  justify-start hover:bg-black gap-2 ${isActive ? 'font-extrabold text-yellow-500 ' : 'text-white'}`
+                                        }
+                                        to="/dashboard/analytics"
+                                    >
+                                        <FaChartPie></FaChartPie> Analytics
                                     </NavLink>
                                 </li>
                                 <li className='p-2 '>

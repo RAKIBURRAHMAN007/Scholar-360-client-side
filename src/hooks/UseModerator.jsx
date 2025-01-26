@@ -8,7 +8,7 @@ const UseModerator = () => {
     const {user} = useContext(AuthContext);
     const axiosSecure = UseAxiosSecure();
     const {data: isModerator,isPending: isModeratorLoading} = useQuery({
-        queryKey: 'moderator',
+        queryKey: ['moderator'],
         queryFn: async()=>{
             const res = await axiosSecure.get(`/user/moderator/${user.email}`);
             return res.data?.moderator;
