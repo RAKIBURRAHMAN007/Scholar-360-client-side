@@ -27,10 +27,10 @@ const AdminProfile = () => {
             }}>
             <div className="absolute inset-0  bg-black bg-opacity-40 backdrop-blur-sm">
                 <div className='relative z-10  '>
-                    <h1 className='mb-10 text-center mt-8  text-white font-bold text-xl md:text-3xl'>Welcome, {adminData.displayName}! <br /> Let’s lead the way.</h1>
+                    <h1 className='mb-10 text-center mt-20  text-white font-bold text-xl md:text-3xl'>Welcome, {adminData.displayName}! <br /> Let’s lead the way.</h1>
                     <div className=''>
 
-                        <div className="max-w-sm md:max-w-lg mx-auto  bg-white rounded-lg shadow-lg p-6 text-center border border-gray-200">
+                        <div className="max-w-sm md:max-w-lg mx-auto  text-white rounded-lg shadow-lg p-6 text-center ">
 
                             <img
                                 src={user.photoURL}
@@ -38,11 +38,11 @@ const AdminProfile = () => {
                                 className="w-24 h-24 mx-auto rounded-full mb-4 border-2 border-gray-300"
                             />
 
-                            <h1 className="text-xl font-semibold text-gray-800 mb-2">{adminData.displayName || 'N/A'}</h1>
-                            <p className="text-sm text-gray-600">
+                            <h1 className="text-xl font-semibold  mb-2">{adminData.displayName || 'N/A'}</h1>
+                            <p className="text-sm ">
                                 <span className="font-medium">Email:</span> {adminData.email || 'N/A'}
                             </p>
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm ">
                                 <span className="font-medium">Role:</span> {adminData.role || 'N/A'}
                             </p>
                         </div>

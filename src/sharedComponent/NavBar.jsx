@@ -48,69 +48,27 @@ const NavBar = () => {
                 </NavLink>
             </li>
 
-            {
-                isAdmin && <li>
 
-                    <NavLink
-                        to="/dashboard/adminProfile"
-                        style={({ isActive, isPending, isTransitioning }) => {
-                            return {
-                                fontWeight: isActive ? "bold" : "",
+            <li>
 
-                                backgroundColor: isActive ? '#2c3792' : '',
-                                color: isPending ? "red" : "",
-                                viewTransitionName: isTransitioning ? "slide" : "",
-                            };
-                        }}
-                        className=" hover:text-[#2c3792] p-2 rounded font-medium hover:font-bold"
-                    >
-                        Dashboard
-                    </NavLink>
+                <NavLink
+                    to="/dashboard/dashBoardHome"
+                    style={({ isActive, isPending, isTransitioning }) => {
+                        return {
+                            fontWeight: isActive ? "bold" : "",
 
-                </li>
-            }
-            {
-                isModerator && <li>
+                            backgroundColor: isActive ? '#2c3792' : '',
+                            color: isPending ? "red" : "",
+                            viewTransitionName: isTransitioning ? "slide" : "",
+                        };
+                    }}
+                    className=" hover:text-[#2c3792] p-2 rounded font-medium hover:font-bold"
+                >
+                    Dashboard
+                </NavLink>
 
-                    <NavLink
-                        to="/dashboard/adminProfile"
-                        style={({ isActive, isPending, isTransitioning }) => {
-                            return {
-                                fontWeight: isActive ? "bold" : "",
+            </li>
 
-                                backgroundColor: isActive ? '#2c3792' : '',
-                                color: isPending ? "red" : "",
-                                viewTransitionName: isTransitioning ? "slide" : "",
-                            };
-                        }}
-                        className=" hover:text-[#2c3792] p-2 rounded font-medium hover:font-bold"
-                    >
-                        Dashboard
-                    </NavLink>
-
-                </li>
-            }
-            {
-                !isAdmin && !isModerator && <li>
-
-                    <NavLink
-                        to="/dashboard/myProfile"
-                        style={({ isActive, isPending, isTransitioning }) => {
-                            return {
-                                fontWeight: isActive ? "bold" : "",
-
-                                backgroundColor: isActive ? '#2c3792' : '',
-                                color: isPending ? "red" : "",
-                                viewTransitionName: isTransitioning ? "slide" : "",
-                            };
-                        }}
-                        className=" hover:text-[#2c3792] p-2 rounded font-medium hover:font-bold"
-                    >
-                        Dashboard
-                    </NavLink>
-
-                </li>
-            }
 
         </>
 

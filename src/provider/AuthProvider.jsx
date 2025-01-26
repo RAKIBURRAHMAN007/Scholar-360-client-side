@@ -31,6 +31,7 @@ const AuthProvider = ({ children }) => {
     const logOut = () => {
         setLoading(true)
         signOut(auth);
+        localStorage.removeItem('access-token')
     }
     const authInfo = {
         createNewUser,

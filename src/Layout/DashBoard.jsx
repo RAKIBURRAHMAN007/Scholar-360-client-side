@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet } from 'react-router-dom';
 import { FaBars, FaClipboardCheck, FaClipboardList, FaHome, FaPlus, FaStar, FaTasks, FaTimes, FaUser, FaUsers } from 'react-icons/fa';
 import UseAdmin from '../hooks/UseAdmin';
 import UseModerator from '../hooks/UseModerator';
+import { FaHouseMedicalCircleExclamation, FaHouseTsunami } from 'react-icons/fa6';
 
 const Dashboard = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -34,6 +35,7 @@ const Dashboard = () => {
             >
                 <h2 className="text-xl font-semibold mt-28 p-4">Dashboard Overview</h2>
                 <ul className="mt-2 ">
+
 
                     {/* user links */}
                     {
@@ -225,7 +227,7 @@ const Dashboard = () => {
                                         }
                                         to="/"
                                     >
-                                        <FaHome></FaHome> Home
+                                        <FaHome></FaHome>Home
                                     </NavLink>
                                 </li>
                             </>
@@ -233,6 +235,18 @@ const Dashboard = () => {
                         )
                     }
 
+
+                    {/* common link */}
+                    <li className='p-2 '>
+                        <NavLink
+                            className={({ isActive }) =>
+                                `flex items-center p-1  justify-start hover:bg-black gap-2 ${isActive ? 'font-extrabold text-yellow-500 ' : 'text-white'}`
+                            }
+                            to="/dashboard/dashBoardHome"
+                        >
+                            <FaHouseTsunami></FaHouseTsunami> DashBoard Root
+                        </NavLink>
+                    </li>
 
 
                 </ul>

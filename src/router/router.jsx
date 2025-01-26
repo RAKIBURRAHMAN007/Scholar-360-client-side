@@ -23,6 +23,7 @@ import Payment from "../components/Payment/Payment";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import ManageReviews from "../components/DashBoard/ManageReviews";
 import ManageAppliedScholarship from "../components/DashBoard/ManageAppliedScholarship";
+import DashBoardHome from "../components/DashBoard/DashBoardHome";
 
 const router = createBrowserRouter([
     {
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
             {
                 path: 'manageApplications',
                 element: <ManageAppliedScholarship></ManageAppliedScholarship>
+            },
+            {
+                path: 'dashBoardHome',
+                element: <DashBoardHome></DashBoardHome>
             }
         ]
     }
