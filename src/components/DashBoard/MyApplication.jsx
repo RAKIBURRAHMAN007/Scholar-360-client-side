@@ -134,7 +134,7 @@ const MyApplication = () => {
             // Prepare the updated application data
 
 
-            console.log('Updated Application Data:', updatedApplicationData);
+            // console.log('Updated Application Data:', updatedApplicationData);
 
             // Send the update request
             const res = await axiosSecure.patch(`/appliedScholarships/${selectedEditScholarship._id}`, updatedApplicationData);

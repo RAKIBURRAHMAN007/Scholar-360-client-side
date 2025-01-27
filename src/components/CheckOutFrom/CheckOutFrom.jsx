@@ -30,7 +30,7 @@ const CheckOutFrom = ({ Scholarship }) => {
             return res.data;
         }
     })
-    console.log('from mongo', userDetail)
+    // console.log('from mongo', userDetail)
     useEffect(() => {
         if (price > 0) {
             axiosSecure.post('/create-checkout-session', { price: price })
@@ -58,7 +58,7 @@ const CheckOutFrom = ({ Scholarship }) => {
         });
 
         if (error) {
-            console.log('[error]', error);
+            // console.log('[error]', error);
             toast.error(error.message);
             setError(error.message);
             setIsProcessing(false);
@@ -78,14 +78,14 @@ const CheckOutFrom = ({ Scholarship }) => {
         });
 
         if (confirmError) {
-            console.log('Confirm error:', confirmError);
+            // console.log('Confirm error:', confirmError);
             toast.error(confirmError.message);
             setIsProcessing(false);
             return;
         }
 
         if (paymentIntent?.status === 'succeeded') {
-            console.log('Transaction successful:', paymentIntent.id);
+            // console.log('Transaction successful:', paymentIntent.id);
             setTransactionId(paymentIntent.id);
 
             setModalOpen(true)
@@ -148,7 +148,7 @@ const CheckOutFrom = ({ Scholarship }) => {
                     deadLine: Scholarship.applicationDeadline
                 };
 
-                console.log('Application Data with Uploaded Image URL:', applicationData);
+                // console.log('Application Data with Uploaded Image URL:', applicationData);
 
                 axiosSecure.post('/appliedScholarships', applicationData)
                     .then(res => {

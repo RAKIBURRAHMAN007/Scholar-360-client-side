@@ -47,7 +47,7 @@ const AddScholarship = () => {
                     email: user.email,
                 };
 
-                console.log(scholarshipData);
+                // console.log(scholarshipData);
                 axiosSecure.post('/allScholarship', scholarshipData)
                     .then(res => {
                         if (res.data.insertedId) {

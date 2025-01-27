@@ -21,7 +21,7 @@ const ManageReviews = () => {
 
 
     const handleDelete = (reviewId) => {
-        console.log(reviewId)
+        // console.log(reviewId)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this Review!",
