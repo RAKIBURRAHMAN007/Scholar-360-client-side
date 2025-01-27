@@ -138,7 +138,7 @@ const MyReviews = () => {
 
             {/* Edit Modal */}
             {editingReview && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+                <div className="fixed inset-0 z-30 bg-black bg-opacity-50 flex justify-center items-center">
                     <div className="bg-white p-6 rounded-lg shadow-lg w-96">
                         <h2 className="text-xl mb-4">Edit Review</h2>
                         <form onSubmit={handleEditSubmit}>
