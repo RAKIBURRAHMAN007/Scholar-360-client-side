@@ -12,12 +12,12 @@ Scholar 360 is a comprehensive Scholarship Management System designed to simplif
 - **Homepage Design:** Welcoming design with a search bar and featured scholarships.  
 - **Scholarship Search:** Filter and search scholarships by criteria like eligibility, country, and price range.  
 - **User Roles:**  
-  - **User:** Search and apply for scholarships, view application status, and leave feedback.  
-  - **Admin:** Manage scholarships, users, and moderators, and oversee user roles and permissions.  
+  - **User:** Search and apply for scholarships, view application status, and .  
+  - **Admin:** Manage scholarships, users, and moderators, and oversee user roles and permissions,leave feedback.  
   - **Moderator:** Review scholarship applications, provide feedback, and moderate content.  
-- **Scholarship Details Page:** Displays detailed information about scholarships, including eligibility, application process, and deadlines.  
+- **Scholarship Details Page:** Displays detailed information about scholarships, application process, and deadlines.  
 - **Dashboard:**  
-  - **User Dashboard:** Shows applied scholarships, application status, and history.  
+  - **User Dashboard:** Shows applied scholarships,manag  applied scholarships, application status, and history.  
   - **Admin Dashboard:** Tools to manage users, scholarships, reviews, and feedback.  
   - **Moderator Dashboard:** Tools to review and approve scholarship applications.  
 - **Review System:** Users can leave reviews about scholarships.  
@@ -27,7 +27,6 @@ Scholar 360 is a comprehensive Scholarship Management System designed to simplif
 - **Payment Method:**  
   - Integrated **Stripe payment system** to facilitate secure transactions for scholarship application fees.  
   - Users can pay fees directly through the system while applying for scholarships.  
-  - Fully PCI-compliant and ensures safe handling of payment information.  
 - **404 Page:** Custom page for invalid routes.  
 
 ---
