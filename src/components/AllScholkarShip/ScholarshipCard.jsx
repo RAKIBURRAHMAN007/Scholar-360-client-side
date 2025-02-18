@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaLocationArrow } from "react-icons/fa";
 import {
   FaLocationCrosshairs,
@@ -6,8 +6,10 @@ import {
   FaMapLocation,
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../provider/ThemeProvider";
 
 const ScholarshipCard = ({ scholarship }) => {
+  const { theme } = useContext(ThemeContext);
   const {
     scholarshipName,
     universityName,
@@ -24,7 +26,11 @@ const ScholarshipCard = ({ scholarship }) => {
   } = scholarship;
 
   return (
-    <div className=" border rounded-lg shadow-2xl overflow-hidden bg-white">
+    <div
+      className={`border rounded-lg shadow-2xl overflow-hidden  ${
+        theme === "dark" ? "bg-black text-white" : ""
+      }`}
+    >
       <div className="flex justify-center pt-3 ">
         <img
           src={universityImage}
@@ -34,13 +40,27 @@ const ScholarshipCard = ({ scholarship }) => {
       </div>
 
       <div className="p-4">
-        <h2 className=" font-semibold text-gray-800 mb-1">{universityName}</h2>
+        <h2
+          className={` font-semibold  mb-1 ${
+            theme === "dark" ? "text-white" : "text-gray-800"
+          }`}
+        >
+          {universityName}
+        </h2>
 
-        <p className="text-base line-clamp-1 text-gray-500">
+        <p
+          className={`text-base line-clamp-1 ${
+            theme === "dark" ? "text-white " : "text-gray-500"
+          }`}
+        >
           {scholarshipName}
         </p>
 
-        <p className="mt-2 text-sm text-gray-600 flex items-center gap-2">
+        <p
+          className={`mt-2 text-sm  flex items-center gap-2 ${
+            theme === "dark" ? "text-white " : "text-gray-600"
+          }`}
+        >
           <FaMapLocation></FaMapLocation> {universityCity},{universityCountry}
         </p>
 

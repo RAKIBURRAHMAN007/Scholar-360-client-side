@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
+import { ThemeContext } from "../../provider/ThemeProvider";
 
 const SubscribeSection = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
-
+  const { theme } = useContext(ThemeContext);
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -37,7 +38,11 @@ const SubscribeSection = () => {
   };
 
   return (
-    <div className="w-11/12 mx-auto p-6 mt-12 mb-8 bg-gray-50  shadow-lg ">
+    <div
+      className={`w-11/12 mx-auto p-6 mt-12 mb-8   shadow-lg ${
+        theme === "dark" ? "bg-gray-950 border border-white" : "bg-gray-50"
+      }`}
+    >
       <h2 className="text-3xl font-bold text-[#2c3792] text-center mb-6">
         Subscribe to Our Newsletter
       </h2>

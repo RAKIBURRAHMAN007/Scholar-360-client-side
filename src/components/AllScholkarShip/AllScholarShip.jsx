@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosPublic from "../../hooks/UseAxiosPublic";
 import ScholarshipCard from "./ScholarshipCard";
+import { ThemeContext } from "../../provider/ThemeProvider";
 
 const AllScholarShip = () => {
+  const { theme } = useContext(ThemeContext);
   const axiosPublic = UseAxiosPublic();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
@@ -63,7 +65,11 @@ const AllScholarShip = () => {
   }
 
   return (
-    <div className="w-11/12 mx-auto mt-28 mb-20">
+    <div
+      className={`w-11/12 mx-auto mt-28 mb-20 ${
+        theme === "dark" ? "bg-black text-white" : ""
+      }`}
+    >
       <h1 className="text-center font-bold md:text-3xl mb-5 text-xl text-[#2c3792]">
         Explore Prestigious Scholarships <br /> Worldwide
       </h1>
