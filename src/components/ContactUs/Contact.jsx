@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import emailjs from "emailjs-com";
 import { toast } from "react-toastify";
 import icon from "../../assets/img/Contact us-amico.svg";
+import { ThemeContext } from "../../provider/ThemeProvider";
 const Contact = () => {
+  const { theme } = useContext(ThemeContext);
   const [formData, setFormData] = useState({
     to_name: "Recipient Name", // The recipient name (can be dynamic)
     from_name: "",
@@ -80,16 +82,17 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="md:w-1/2 mx-auto shadow-xl">
-        <h1 className="text-3xl font-semibold text-[#2c3792]  text-center mb-6">
+      <div
+        className={`md:w-1/2 mx-auto shadow-xl ${
+          theme === "dark" ? "bg-gray-950 text-white border" : "bg-white"
+        }`}
+      >
+        <h1 className="text-3xl font-semibold mt-1 text-[#2c3792]  text-center mb-6">
           Send Email
         </h1>
-        <form
-          onSubmit={handleSubmit}
-          className="bg-white p-6 rounded-md shadow-md"
-        >
+        <form onSubmit={handleSubmit} className=" p-6 rounded-md shadow-md">
           <div className="mb-4">
-            <label className="block text-gray-700">Your Name</label>
+            <label className="block ">Your Name</label>
             <input
               type="text"
               name="from_name" // Ensure this matches the placeholder in your template
@@ -101,7 +104,7 @@ const Contact = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Your Email</label>
+            <label className="block ">Your Email</label>
             <input
               type="email"
               name="email"
@@ -113,7 +116,7 @@ const Contact = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Message</label>
+            <label className="block ">Message</label>
             <textarea
               name="message" // Ensure this matches the placeholder in your template
               value={formData.message}
