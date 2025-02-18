@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../../provider/ThemeProvider";
 
 const Resources = () => {
+  const { theme } = useContext(ThemeContext);
   return (
     <div className="w-11/12 mx-auto mt-32">
       <h1 className="text-4xl font-bold mb-6 text-[#2c3792]">
@@ -21,7 +23,11 @@ const Resources = () => {
           🔑 Scholarship Application Tips
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div
+            className={`${
+              theme === "dark" ? "bg-gray-950 border text-white" : "bg-white"
+            } p-6 rounded-lg shadow-lg`}
+          >
             <h3 className="text-xl font-semibold mb-4">
               1. How to Write a Winning Scholarship Essay
             </h3>
@@ -35,7 +41,11 @@ const Resources = () => {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div
+            className={`${
+              theme === "dark" ? "bg-gray-950 border text-white" : "bg-white"
+            } p-6 rounded-lg shadow-lg`}
+          >
             <h3 className="text-xl font-semibold mb-4">
               2. Common Scholarship Mistakes to Avoid
             </h3>
@@ -49,7 +59,11 @@ const Resources = () => {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div
+            className={`${
+              theme === "dark" ? "bg-gray-950 border text-white" : "bg-white"
+            } p-6 rounded-lg shadow-lg`}
+          >
             <h3 className="text-xl font-semibold mb-4">
               3. The Ultimate Scholarship Application Checklist
             </h3>
@@ -70,7 +84,11 @@ const Resources = () => {
           🎓 Scholarship Search Guides
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div
+            className={`${
+              theme === "dark" ? "bg-gray-950 border text-white" : "bg-white"
+            } p-6 rounded-lg shadow-lg`}
+          >
             <h3 className="text-xl font-semibold mb-4">
               1. How to Find Scholarships That Fit Your Profile
             </h3>
@@ -83,7 +101,11 @@ const Resources = () => {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div
+            className={`${
+              theme === "dark" ? "bg-gray-950 border text-white" : "bg-white"
+            } p-6 rounded-lg shadow-lg`}
+          >
             <h3 className="text-xl font-semibold mb-4">
               2. Best Scholarships for International Students
             </h3>
@@ -97,7 +119,11 @@ const Resources = () => {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div
+            className={`${
+              theme === "dark" ? "bg-gray-950 border text-white" : "bg-white"
+            } p-6 rounded-lg shadow-lg`}
+          >
             <h3 className="text-xl font-semibold mb-4">
               3. Government-Funded Scholarships vs. Private Scholarships
             </h3>
@@ -118,7 +144,11 @@ const Resources = () => {
           💼 Career & Personal Growth
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div
+            className={`${
+              theme === "dark" ? "bg-gray-950 border text-white" : "bg-white"
+            } p-6 rounded-lg shadow-lg`}
+          >
             <h3 className="text-xl font-semibold mb-4">
               1. How to Build a Strong Resume for Scholarship Applications
             </h3>
@@ -131,7 +161,11 @@ const Resources = () => {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div
+            className={`${
+              theme === "dark" ? "bg-gray-950 border text-white" : "bg-white"
+            } p-6 rounded-lg shadow-lg`}
+          >
             <h3 className="text-xl font-semibold mb-4">
               2. Networking for Scholarships: How to Leverage Connections
             </h3>
@@ -144,7 +178,11 @@ const Resources = () => {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div
+            className={`${
+              theme === "dark" ? "bg-gray-950 border text-white" : "bg-white"
+            } p-6 rounded-lg shadow-lg`}
+          >
             <h3 className="text-xl font-semibold mb-4">
               3. Time Management for Scholarship Applicants
             </h3>
@@ -163,7 +201,11 @@ const Resources = () => {
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">📅 Important Deadlines</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div
+            className={`${
+              theme === "dark" ? "bg-gray-950 border text-white" : "bg-white"
+            } p-6 rounded-lg shadow-lg`}
+          >
             <h3 className="text-xl font-semibold mb-4">
               1. Tips for Meeting Scholarship Deadlines
             </h3>
@@ -176,7 +218,11 @@ const Resources = () => {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div
+            className={`${
+              theme === "dark" ? "bg-gray-950 border text-white" : "bg-white"
+            } p-6 rounded-lg shadow-lg`}
+          >
             <h3 className="text-xl font-semibold mb-4">
               2. How to Create a Scholarship Application Timeline
             </h3>
@@ -197,7 +243,11 @@ const Resources = () => {
           📝 Interview & Application Tips
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div
+            className={`${
+              theme === "dark" ? "bg-gray-950 border text-white" : "bg-white"
+            } p-6 rounded-lg shadow-lg`}
+          >
             <h3 className="text-xl font-semibold mb-4">
               1. How to Prepare for a Scholarship Interview
             </h3>
@@ -210,7 +260,11 @@ const Resources = () => {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div
+            className={`${
+              theme === "dark" ? "bg-gray-950 border text-white" : "bg-white"
+            } p-6 rounded-lg shadow-lg`}
+          >
             <h3 className="text-xl font-semibold mb-4">
               2. What to Do After You’ve Submitted Your Scholarship Application
             </h3>

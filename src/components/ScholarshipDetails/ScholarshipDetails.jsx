@@ -1,13 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useContext } from "react";
 import UseAxiosPublic from "../../hooks/UseAxiosPublic";
 import { Link, useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
+import { ThemeContext } from "../../provider/ThemeProvider";
 
 const ScholarshipDetails = () => {
+  const { theme } = useContext(ThemeContext);
   const { id } = useParams();
   const axiosPublic = UseAxiosPublic();
 
@@ -37,22 +39,34 @@ const ScholarshipDetails = () => {
           className="mx-auto w-36 h-36 border mb-4"
         />
         <h1 className="text-3xl font-bold">{Scholarship.scholarshipName}</h1>
-        <p className="text-xl font-semibold text-gray-600">
+        <p
+          className={`text-xl font-semibold  ${
+            theme === "dark" ? " text-white" : "text-gray-600"
+          }`}
+        >
           {Scholarship.universityName}
         </p>
-        <p className="text-lg text-gray-500">
+        <p
+          className={`text-lg ${
+            theme === "dark" ? " text-white" : "text-gray-500"
+          }`}
+        >
           {Scholarship.universityCity}, {Scholarship.universityCountry}
         </p>
       </div>
 
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-300">
+        <table
+          className={`min-w-full ${
+            theme === "dark" ? "bg-black text-white" : "bg-white"
+          } border border-gray-300`}
+        >
           <thead className="bg-gray-100">
             <tr>
-              <th className="py-2 px-4 text-left border-r border-gray-300">
+              <th className="py-2 px-4 text-left text-black border-r border-gray-300">
                 Field
               </th>
-              <th className="py-2 px-4 text-left">Details</th>
+              <th className="py-2 px-4 text-black text-left">Details</th>
             </tr>
           </thead>
           <tbody>
