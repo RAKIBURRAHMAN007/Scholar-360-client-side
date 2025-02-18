@@ -26,6 +26,7 @@ import ManageAppliedScholarship from "../components/DashBoard/ManageAppliedSchol
 import DashBoardHome from "../components/DashBoard/DashBoardHome";
 import AnalyticChart from "../components/DashBoard/AnalyticChart";
 import Contact from "../components/ContactUs/Contact";
+import Resources from "../components/Resource/Resource";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact></Contact>,
+      },
+      {
+        path: "resource",
+        element: <Resources></Resources>,
       },
       {
         path: "/login",
