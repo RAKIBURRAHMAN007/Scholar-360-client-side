@@ -6,7 +6,7 @@ import ScholarshipCard from "./ScholarshipCard";
 const AllScholarShip = () => {
   const axiosPublic = UseAxiosPublic();
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 8;
   const [searchTerm, setSearchTerm] = useState("");
 
   const { data: allScholarships = [] } = useQuery({
@@ -91,7 +91,7 @@ const AllScholarShip = () => {
         </form>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:gap-10 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-4">
         {paginatedScholarships.length > 0 ? (
           paginatedScholarships.map((scholarship) => (
             <ScholarshipCard key={scholarship._id} scholarship={scholarship} />

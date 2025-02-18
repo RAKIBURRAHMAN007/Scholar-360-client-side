@@ -22,7 +22,7 @@ const TopScholarship = () => {
         and ease <br className="md:block hidden" /> financial burdens, paving
         the way for success.
       </p>
-      <div className="grid grid-cols-1 gap-6 lg:gap-10 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 lg:gap-10 md:grid-cols-2 lg:grid-cols-4">
         {topScholarships.map((scholarship) => (
           <ScholarshipCard scholarship={scholarship}></ScholarshipCard>
         ))}

@@ -1,4 +1,10 @@
 import React from "react";
+import { FaLocationArrow } from "react-icons/fa";
+import {
+  FaLocationCrosshairs,
+  FaLocationPin,
+  FaMapLocation,
+} from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const ScholarshipCard = ({ scholarship }) => {
@@ -23,7 +29,7 @@ const ScholarshipCard = ({ scholarship }) => {
         <img
           src={universityImage}
           alt={universityName}
-          className="w-60 border-2 h-40 "
+          className="w-60 border-2 h-36 "
         />
       </div>
 
@@ -34,19 +40,14 @@ const ScholarshipCard = ({ scholarship }) => {
           {scholarshipName}
         </p>
 
-        <p className="mt-2 text-sm text-gray-600 ">
-          <strong className="text-base">Location:</strong> {universityCity},
-          {universityCountry}
-        </p>
-
-        <p className="text-gray-600 text-base">
-          <strong>Scholarship Category:</strong> {scholarshipCategory}
+        <p className="mt-2 text-sm text-gray-600 flex items-center gap-2">
+          <FaMapLocation></FaMapLocation> {universityCity},{universityCountry}
         </p>
 
         {/* <p className="text-gray-600 text-base  ">
           <strong>Scholarship Description:</strong>
         </p> */}
-        <p className="text-justify line-clamp-4 mt-3">
+        <p className="text-justify line-clamp-4 mt-1">
           {ScholarshipDescription}
         </p>
 
