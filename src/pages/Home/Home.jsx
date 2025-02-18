@@ -6,6 +6,7 @@ import MainHomeAbout from "../../components/HomeAboutUs/MainHomeAbout";
 import CountUp from "../../components/CountUp/CountUpStat";
 import TopScholarship from "../../components/TopScholarship/Topscholarship";
 import SubscribeSection from "../../components/Subscribe/SubscribeSection";
+import Qna from "../../components/Qna/Qna";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <MainHomeAbout></MainHomeAbout>
       <CountUp></CountUp>
       <Welcome></Welcome>
+      <Qna></Qna>
       <SubscribeSection></SubscribeSection>
     </div>
   );
