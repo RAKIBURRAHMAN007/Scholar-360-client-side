@@ -27,6 +27,7 @@ import DashBoardHome from "../components/DashBoard/DashBoardHome";
 import AnalyticChart from "../components/DashBoard/AnalyticChart";
 import Contact from "../components/ContactUs/Contact";
 import Resources from "../components/Resource/Resource";
+import UserAnalyticChart from "../components/DashBoard/UserAnalyticChart";
 
 const router = createBrowserRouter([
   {
@@ -128,6 +129,10 @@ const router = createBrowserRouter([
       {
         path: "analytics",
         element: <AnalyticChart></AnalyticChart>,
+      },
+      {
+        path: "userAnalytics",
+        element: <UserAnalyticChart></UserAnalyticChart>,
       },
     ],
   },
