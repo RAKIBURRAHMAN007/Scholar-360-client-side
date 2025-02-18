@@ -64,41 +64,45 @@ const NavBar = () => {
           Contract Us
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/resource"
-          style={({ isActive, isPending, isTransitioning }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
+      {user && (
+        <li>
+          <NavLink
+            to="/resource"
+            style={({ isActive, isPending, isTransitioning }) => {
+              return {
+                fontWeight: isActive ? "bold" : "",
 
-              backgroundColor: isActive ? "#2c3792" : "",
-              color: isPending ? "red" : "",
-              viewTransitionName: isTransitioning ? "slide" : "",
-            };
-          }}
-          className=" hover:text-[#2c3792] p-2 rounded font-medium hover:font-bold"
-        >
-          Assistance
-        </NavLink>
-      </li>
+                backgroundColor: isActive ? "#2c3792" : "",
+                color: isPending ? "red" : "",
+                viewTransitionName: isTransitioning ? "slide" : "",
+              };
+            }}
+            className=" hover:text-[#2c3792] p-2 rounded font-medium hover:font-bold"
+          >
+            Assistance
+          </NavLink>
+        </li>
+      )}
 
-      <li>
-        <NavLink
-          to="/dashboard/dashBoardHome"
-          style={({ isActive, isPending, isTransitioning }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
+      {user && (
+        <li>
+          <NavLink
+            to="/dashboard/dashBoardHome"
+            style={({ isActive, isPending, isTransitioning }) => {
+              return {
+                fontWeight: isActive ? "bold" : "",
 
-              backgroundColor: isActive ? "#2c3792" : "",
-              color: isPending ? "red" : "",
-              viewTransitionName: isTransitioning ? "slide" : "",
-            };
-          }}
-          className=" hover:text-[#2c3792] p-2 rounded font-medium hover:font-bold"
-        >
-          Dashboard
-        </NavLink>
-      </li>
+                backgroundColor: isActive ? "#2c3792" : "",
+                color: isPending ? "red" : "",
+                viewTransitionName: isTransitioning ? "slide" : "",
+              };
+            }}
+            className=" hover:text-[#2c3792] p-2 rounded font-medium hover:font-bold"
+          >
+            Dashboard
+          </NavLink>
+        </li>
+      )}
     </>
   );
 
