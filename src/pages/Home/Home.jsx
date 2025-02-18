@@ -7,6 +7,7 @@ import CountUp from "../../components/CountUp/CountUpStat";
 import TopScholarship from "../../components/TopScholarship/Topscholarship";
 import SubscribeSection from "../../components/Subscribe/SubscribeSection";
 import Qna from "../../components/Qna/Qna";
+import OfferMarquee from "../../components/Offer/Offer";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Banner></Banner>
 
       <HomeAboutUs></HomeAboutUs>
+      <OfferMarquee></OfferMarquee>
       <TopScholarship></TopScholarship>
       <MainHomeAbout></MainHomeAbout>
       <CountUp></CountUp>
