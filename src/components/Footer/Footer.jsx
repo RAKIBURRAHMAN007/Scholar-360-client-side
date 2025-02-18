@@ -1,24 +1,46 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../assets/img/1.png";
+import { ThemeContext } from "../../provider/ThemeProvider";
 
 const Footer = () => {
+  const { theme } = useContext(ThemeContext);
   return (
     <div className="mt-16">
-      <footer className="bg-gray-50">
+      <footer className={theme === "dark" ? "bg-gray-950 " : "bg-gray-50"}>
         <div className="container mx-auto py-7 px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
           <div>
             <div className="text-[#2c3792] font-bold text-lg mb-4">
               <img className="w-24" src={logo} alt="Scholar360 Logo" />
             </div>
-            <p className="text-sm text-gray-600">
+            <p
+              className={`text-sm  ${
+                theme === "dark" ? "text-white" : "text-gray-600"
+              }`}
+            >
               Find and Apply for Scholarships
             </p>
-            <p className="text-sm text-gray-500 mt-2">Scholar360, 2025.</p>
+            <p
+              className={`text-sm  ${
+                theme === "dark" ? "text-white" : "text-gray-500"
+              } mt-2`}
+            >
+              Scholar360, 2025.
+            </p>
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-700 mb-4">Scholarships</h3>
-            <ul className="space-y-2 text-sm text-gray-600">
+            <h3
+              className={`font-semibold  ${
+                theme === "dark" ? "text-white" : "text-gray-700"
+              } mb-4`}
+            >
+              Scholarships
+            </h3>
+            <ul
+              className={`space-y-2 text-sm ${
+                theme === "dark" ? "text-white" : "text-gray-600"
+              }`}
+            >
               <li>
                 <a href="/scholarships" className="hover:text-[#2c3792]">
                   Available Scholarships
@@ -38,8 +60,18 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-700 mb-4">About</h3>
-            <ul className="space-y-2 text-sm text-gray-600">
+            <h3
+              className={`font-semibold  ${
+                theme === "dark" ? "text-white" : "text-gray-700"
+              } mb-4`}
+            >
+              About
+            </h3>
+            <ul
+              className={`space-y-2 text-sm ${
+                theme === "dark" ? "text-white" : "text-gray-600"
+              }`}
+            >
               <li>
                 <a href="/about" className="hover:text-[#2c3792]">
                   About Us
@@ -59,8 +91,18 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-700 mb-4">Resources</h3>
-            <ul className="space-y-2 text-sm text-gray-600">
+            <h3
+              className={`font-semibold  ${
+                theme === "dark" ? "text-white" : "text-gray-700"
+              } mb-4`}
+            >
+              Resources
+            </h3>
+            <ul
+              className={`space-y-2 text-sm ${
+                theme === "dark" ? "text-white" : "text-gray-600"
+              }`}
+            >
               <li>
                 <a href="/blog" className="hover:text-[#2c3792]">
                   Scholarship Blog
